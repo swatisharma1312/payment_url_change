@@ -15,7 +15,7 @@ class GenratePaymentLink(models.TransientModel):
 
             if payment_link.res_model == 'sale.order':
                 base_url = self.env['ir.config_parameter'].sudo().search([('key', '=', 'products_url')], limit=1).value
-                payment_link.link = ('%s/website_payment/pay?reference=%s&amount=%s&currency_id=%s'
+                payment_link.link = ('%swebsite_payment/pay?reference=%s&amount=%s&currency_id=%s'
                                     '&partner_id=%s&order_id=%s&company_id=%s&access_token=%s') % (
                                         base_url,
                                         urls.url_quote_plus(payment_link.description),
